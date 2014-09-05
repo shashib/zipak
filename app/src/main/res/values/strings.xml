@@ -17,6 +17,7 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="signup_error_message">Please Enter All information</string>
     <string name="signup_error_title">Oops</string>
+    <string name="error_title">We\'re Sorry</string>
     <string name="login_error_message">Please make Sure to Enter User Name and Password</string>
     <string name="login_error_title">Oops</string>
     <string name="menu_logout_lable">Logout</string>
