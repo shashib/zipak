@@ -1,9 +1,14 @@
 package com.funq.zipak;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -11,13 +16,85 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
+import java.io.File;
+
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
     public static final String TAG= MainActivity.class.getSimpleName();
+    public static final int TAKE_PHOTO =0;
+    public static final int TAKE_VIDEO =1;
+    public static final int CHOOSE_PHOTO =2;
+    public static final int CHOOSE_VIDEO =3;
+
+    //to store image
+    public static final int MEDIA_TYPE_IMAGE=4;
+    public static final int MEDIA_TYPE_VIDEO=5;
+
+    protected Uri mMediaUri;
+
+    protected DialogInterface.OnClickListener mDialogListener =new DialogInterface.OnClickListener(){
+        @Override
+                public void onClick(DialogInterface dialog, int which){
+            switch(which){
+                case 0: //Take picture option
+                    Intent takePhotoIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    //to store image
+                    mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+                    if(mMediaUri==null){
+                        Toast.makeText(MainActivity.this, R.string.external_storage_error,Toast.LENGTH_LONG).show();
+                    }else {
+                        takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri);
+                        startActivityForResult(takePhotoIntent, TAKE_PHOTO);
+                    }
+                    break;
+                case 1: //Take video
+                    break;
+                case 2://Choose Picture
+                    break;
+                case 3://Choose Video
+                    break;
+            }
+        }
+
+        private Uri getOutputMediaFileUri(int mediaType) {
+            //To be safe, you should check that the SDCard is mounted
+            if(isExternalStorageAvailable()){
+                //get the URI
+                //1.Get the external Storage Directory
+                String appName=MainActivity.this.getString(R.string.app_name)
+                File MediaStorage = new File(Environment.getExternalStorageDirectory(Environment.DIRECTORY_PICTURES),
+                        appName);
+                //2. Create our own subdirectory
+                if(!mediaStorageDir.exist()){
+                    if(!mediaStorageDir.mkdirs()){
+                        Log.e(TAG,"Failed to create directory");
+                        return null;
+                    }
+                }
+                //3.Create the file name
+                //4.Create the file
+                //5. Return the file's URI
+                return null;
+            }else{
+                return null;
+            }
+
+        }
+
+        private boolean isExternalStorageAvailable(){
+            String state= Environment.getExternalStorageState();
+            if(state.equals(Environment.MEDIA_MOUNTED)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    };
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -130,15 +207,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            ParseUser.logOut();
-            navigateToLogin();
-            return true;
-        }
-        else if(id== R.id.action_edit_friends){
-            Intent intent = new Intent(this, EditFriendsActivity.class);
-            startActivity(intent);
+        switch(id){
+            case R.id.action_logout:
+                ParseUser.logOut();
+                navigateToLogin();
+
+            case R.id.action_edit_friends:
+                Intent intent = new Intent(this, EditFriendsActivity.class);
+                startActivity(intent);
+            case R.id.action_camera:
+                AlertDialog.Builder builder= new AlertDialog.Builder(this);
+                builder.setItems(R.array.camera_choices, mDialogListener);
+                AlertDialog dialog=builder.create();
+                dialog.show();
+
+
         }
         return super.onOptionsItemSelected(item);
+
     }
 }
