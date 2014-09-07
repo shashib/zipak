@@ -267,6 +267,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 mediaScanIntent.setData(mMediaUri);
                 sendBroadcast(mediaScanIntent);
             }
+
+            //Send user to reciepting activity
+            Intent recipientIntent= new Intent(this, RecipientsActivity.class);
+            recipientIntent.setData(mMediaUri);
+            startActivity(recipientIntent);
         }else if(resultCode !=RESULT_CANCELED){
             //Log.i(TAG, "resultcode is now:"+resultCode);
             Toast.makeText(this,R.string.general_error, Toast.LENGTH_LONG).show();

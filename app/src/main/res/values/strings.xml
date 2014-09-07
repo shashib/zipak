@@ -27,11 +27,19 @@
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="menu_camera_label">Camera</string>
     <string name="external_storage_error">There was a problem accessing your device\'s external storage</string>
+
     <string-array name="camera_choices">
         <item>Take Picture</item>
         <item>Take Video</item>
         <item>Choose Picture</item>
         <item>Choose Video</item>
     </string-array>
+
+    <string name="general_error">Sorry, there was an error!</string>
+    <string name="video_size_warning">Selected video must be less than 10MB</string>
+    <string name="error_opening_file">There was issue with selected file</string>
+    <string name="error_file_zise_too_large">Selected file is too large!.Select another file.</string>
+    <string name="title_activity_recipients">Choose Recipients</string>
+    <string name="empty_recipients_list">Ready to Make Friends</string>
 
 </resources>
