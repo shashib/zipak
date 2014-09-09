@@ -46,6 +46,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     protected Uri mMediaUri;
 
+
     protected DialogInterface.OnClickListener mDialogListener =new DialogInterface.OnClickListener(){
         @Override
                 public void onClick(DialogInterface dialog, int which){
@@ -220,6 +221,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -271,6 +274,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             //Send user to reciepting activity
             Intent recipientIntent= new Intent(this, RecipientsActivity.class);
             recipientIntent.setData(mMediaUri);
+            String fileType;
+            if(requestCode==CHOOSE_PHOTO || requestCode==TAKE_PHOTO){
+                fileType= ParseConstants.TYPE_IMAGE;
+            }else{
+                fileType= ParseConstants.TYPE_VIDEO;
+            }
+            recipientIntent.putExtra(ParseConstants.KEY_FILE_TYPE,fileType);
             startActivity(recipientIntent);
         }else if(resultCode !=RESULT_CANCELED){
             //Log.i(TAG, "resultcode is now:"+resultCode);

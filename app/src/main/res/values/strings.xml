@@ -41,5 +41,10 @@
     <string name="error_file_zise_too_large">Selected file is too large!.Select another file.</string>
     <string name="title_activity_recipients">Choose Recipients</string>
     <string name="empty_recipients_list">Ready to Make Friends</string>
-
+    <string name="action_send_label">Send</string>
+    <string name="error_selecting_file">There was an error with selected File. Please select different file.</string>
+    <string name="error_selecting_file_title">We\'re Sorry!</string>
+    <string name="success_message">Message sent!</string>
+    <string name="error_sending_message">There was error sending you message. Please try again</string>
+    <string name="title_activity_view_image">Zipak</string>
 </resources>

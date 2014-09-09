@@ -33,6 +33,7 @@ public class EditFriendsActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_edit_friends);
+        //show up button in actionbar
         setupActionBar();
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -43,10 +44,10 @@ public class EditFriendsActivity extends ListActivity {
         super.onResume();
 
         mCurrentUser = ParseUser.getCurrentUser();
-        mFriendsRelation = mCurrentUser.getRelation(ParseConstant.KEY_FRIENDS_RELATION);
+        mFriendsRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
         setProgressBarIndeterminateVisibility(true);
         ParseQuery<ParseUser> query= ParseUser.getQuery();
-        query.orderByAscending(ParseConstant.KEY_USERNAME);
+        query.orderByAscending(ParseConstants.KEY_USERNAME);
         query.setLimit(50);
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
