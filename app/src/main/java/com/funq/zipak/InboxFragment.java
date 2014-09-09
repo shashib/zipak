@@ -54,10 +54,18 @@ public class InboxFragment extends ListFragment {
                         usernames[i] = message.getString(ParseConstants.KEY_SENDER_NAME);
                         i++;
                     }
-                    MessageAdapter adapter = new MessageAdapter(
-                            getListView().getContext(),
-                            mMessages);
-                    setListAdapter(adapter);
+                    //if below code is absent, data will be pulled from parse every time.
+                    if(getListView().getAdapter() == null) {
+                        //create adapter 1st time only
+                        MessageAdapter adapter = new MessageAdapter(
+                                getListView().getContext(),
+                                mMessages);
+                        setListAdapter(adapter);
+                    }else{
+                        //refill the adapter.
+                        ((MessageAdapter) getListView().getAdapter()).refill(mMessages);
+                    }
+
                 }
             }
         });

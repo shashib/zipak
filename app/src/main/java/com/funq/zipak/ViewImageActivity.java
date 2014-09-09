@@ -9,6 +9,9 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class ViewImageActivity extends Activity {
 
 	@Override
@@ -23,6 +26,15 @@ public class ViewImageActivity extends Activity {
 		Uri imageUri = getIntent().getData();
 		
 		Picasso.with(this).load(imageUri.toString()).into(imageView);
+
+        //to retire the image after 10sec
+        Timer timer= new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                finish();
+            }
+        }, 10*1000);
 	}
 
 	/**
