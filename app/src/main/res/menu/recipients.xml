@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.funq.zipak.RecipientsActivity" >
+    tools:context="com.funq.zipak.com.funq.zipak.ui.RecipientsActivity" >
     <item android:id="@+id/action_send"
         android:title="@string/action_send_label"
         android:orderInCategory="100"

@@ -1,20 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File created by the Android Action Bar Style Generator
+
+     Copyright (C) 2011 The Android Open Source Project
+     Copyright (C) 2012 readyState Software Ltd
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
 <resources>
+
+
+
+    <style name="Theme.Zipak" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_zipak</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Zipak</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Zipak</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Zipak</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Zipak</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Zipak</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_zipak</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_zipak</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Zipak</item>
+        <item name="android:editTextBackground">@drawable/apptheme_edit_text_holo_light</item>
+        <item name="android:actionOverflowButtonStyle">@style/Theme.Zipak.Overflow</item>
+
+    </style>
+
+    <style name="Theme.Zipak.Overflow" parent="@android:style/Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_overflow</item>
+    </style>
+
+    <style name="ActionBar.Solid.Zipak" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_zipak</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_zipak</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_zipak</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Zipak</item>
+        <item name="android:titleTextStyle">@style/ActionBar.Solid.Zipak.TitleTextStyle</item>
+    </style>
+
+    <style name="ActionBar.Solid.Zipak.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/apptheme_color</item>
+    </style>
+    <style name="ActionBar.Transparent.Zipak" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_zipak</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Zipak</item>
+    </style>
+
+    <style name="PopupMenu.Zipak" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_zipak</item>
+    </style>
+
+    <style name="DropDownListView.Zipak" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_zipak</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Zipak" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_zipak</item>
+    </style>
+
+    <style name="DropDownNav.Zipak" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_zipak</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_zipak</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_zipak</item>
+    </style>
+
+    <style name="ProgressBar.Zipak" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_zipak</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Zipak" parent="@android:style/Widget.Holo.Light.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_zipak</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Zipak.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Zipak</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Zipak</item>
+    </style>
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+
+    <style name="AutoCompleteTextViewAppTheme" parent="android:Widget.Holo.Light.AutoCompleteTextView">
+        <item name="android:dropDownSelector">@drawable/apptheme_list_selector_holo_light</item>
+        <item name="android:background">@drawable/apptheme_edit_text_holo_light</item>
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+
+
+    <style name="AuthBackground">
+        <item name="android:background">#33b5e5</item>
     </style>
 
+    <style name="AuthTitle" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AuthSubTitle" parent="AuthTitle">
+
+        <item name="android:layout_below">@id/title</item>
+        <item name="android:text">@string/subtitle_label</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_alignParentTop">false</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
+    <style name="AuthFieldContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_below">@id/subtitle</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_marginTop">@dimen/login_vertical_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingLeft">@dimen/login_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/login_horizontal_padding</item>
+        <item name="android:paddingTop">@dimen/login_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/login_horizontal_padding</item>
+    </style>
+
+    <style name="AuthUserCredential">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">10</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="AuthButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@id/editTextLayout</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:background">@drawable/button_custom</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:textColor">@color/apptheme_color</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AuthSignupButton" parent="AuthButton">
+        <item name="android:layout_alignParentRight">false</item>
+        <item name="android:layout_alignParentLeft">false</item>
+    </style>
 </resources>

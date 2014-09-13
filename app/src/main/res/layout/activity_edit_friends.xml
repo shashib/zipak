@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.funq.zipak.EditFriendsActivity">
+    tools:context="com.funq.zipak.com.funq.zipak.ui.EditFriendsActivity">
 
     <ListView
         android:layout_width="match_parent"

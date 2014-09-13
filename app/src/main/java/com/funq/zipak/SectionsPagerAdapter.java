@@ -9,6 +9,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.funq.zipak.com.funq.zipak.ui.FriendsFragment;
+import com.funq.zipak.com.funq.zipak.ui.InboxFragment;
+
 import java.util.Locale;
 
 /**
@@ -55,5 +58,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             //    return mContext.getString(R.string.title_section3).toUpperCase(l);
         }
         return null;
+    }
+
+    public int getIcon(int position){
+        switch (position) {
+            case 0:
+                return R.drawable.ic_tab_inbox;
+            case 1:
+                return R.drawable.ic_tab_friends;
+        }
+        return R.drawable.ic_tab_inbox;
+
     }
 }
