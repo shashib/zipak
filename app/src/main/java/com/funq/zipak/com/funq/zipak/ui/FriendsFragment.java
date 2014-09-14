@@ -6,11 +6,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import com.funq.zipak.R;
+import com.funq.zipak.com.funq.zipak.adapater.UserAdapter;
 import com.funq.zipak.com.funq.zipak.utils.ParseConstants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -65,11 +65,17 @@ public class FriendsFragment extends android.support.v4.app.Fragment {
                         usernames[i] = user.getUsername();
                         i++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                    /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                             getActivity(),
                             android.R.layout.simple_list_item_1,
-                            usernames);
-                    mGridView.setAdapter(adapter);
+                            usernames);*/
+                    if(mGridView.getAdapter()==null) {
+                        UserAdapter adapter = new UserAdapter(getActivity(), mFriends);
+                        mGridView.setAdapter(adapter);
+                    }else{
+                        ((UserAdapter)mGridView.getAdapter()).refill(mFriends);
+                    }
+
                 }else{
                     //error
                     Log.e(TAG, e.getMessage());

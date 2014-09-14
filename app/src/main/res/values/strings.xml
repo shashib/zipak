@@ -50,4 +50,5 @@
     <string name="subtitle_label">Let\'s Share More</string>
     <string name="image_view_desp">an image view desc</string>
     <string name="button_divider_label">Button Divider</string>
+    <string name="user_avatar_label">User avatar</string>
 </resources>
