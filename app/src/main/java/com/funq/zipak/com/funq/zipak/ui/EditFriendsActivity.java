@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.funq.zipak.ParseConstants;
+import com.funq.zipak.com.funq.zipak.utils.ParseConstants;
 import com.funq.zipak.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;

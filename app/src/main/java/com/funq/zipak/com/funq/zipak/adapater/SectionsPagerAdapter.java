@@ -1,4 +1,4 @@
-package com.funq.zipak;
+package com.funq.zipak.com.funq.zipak.adapater;
 
 /**
  * Created by soham on 9/2/14.
@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.funq.zipak.R;
 import com.funq.zipak.com.funq.zipak.ui.FriendsFragment;
 import com.funq.zipak.com.funq.zipak.ui.InboxFragment;
 

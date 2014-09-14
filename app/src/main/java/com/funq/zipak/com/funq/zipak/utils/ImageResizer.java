@@ -1,4 +1,4 @@
-package com.funq.zipak;
+package com.funq.zipak.com.funq.zipak.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

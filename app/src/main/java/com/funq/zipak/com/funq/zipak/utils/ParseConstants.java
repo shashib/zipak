@@ -1,4 +1,4 @@
-package com.funq.zipak;
+package com.funq.zipak.com.funq.zipak.utils;
 
 /**
  * Created by soham on 9/4/14.

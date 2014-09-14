@@ -5,4 +5,9 @@
     <color name="light_blue_button">#1073e3</color>
     <color name="pressed_blue_button">#bbbbbb</color>
     <color name="focused_blue_button">#1073e3</color>
+    <color name="light_blue_background">#cbeaf6</color>
+    <color name="swipeRefresh1">#bae4f4</color>
+    <color name="swipeRefresh2">#9cdef6</color>
+    <color name="swipeRefresh3">#56c1e9</color>
+    <color name="swipeRefresh4">#33b5e5</color>
 </resources>

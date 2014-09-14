@@ -18,9 +18,9 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Toast;
 
-import com.funq.zipak.ParseConstants;
+import com.funq.zipak.com.funq.zipak.utils.ParseConstants;
 import com.funq.zipak.R;
-import com.funq.zipak.SectionsPagerAdapter;
+import com.funq.zipak.com.funq.zipak.adapater.SectionsPagerAdapter;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
