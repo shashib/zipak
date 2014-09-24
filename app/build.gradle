@@ -8,7 +8,7 @@ android {
         applicationId "com.funq.zipak"
         minSdkVersion 14
         targetSdkVersion 19
-        versionCode 1
+        versionCode 6
         versionName "1.0"
     }
     buildTypes {
@@ -24,4 +24,5 @@ dependencies {
     compile files('libs/Parse-1.3.9.jar')
     compile files('libs/commons-io-2.4.jar')
     compile files('libs/picasso-2.1.1.jar')
+    compile files('libs/Parse-1.4.3.jar')
 }

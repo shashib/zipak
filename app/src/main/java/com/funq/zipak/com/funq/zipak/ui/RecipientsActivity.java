@@ -23,7 +23,9 @@ import com.funq.zipak.com.funq.zipak.utils.ParseConstants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
@@ -157,8 +159,9 @@ public class RecipientsActivity extends Activity {
             @Override
             public void done(ParseException e) {
                 if(e==null){
-
+                    //message sent
                     Toast.makeText(RecipientsActivity.this, getString(R.string.success_message),Toast.LENGTH_LONG).show();
+                    sendPushNotification();
                 }else{
                     //error
                     AlertDialog.Builder builder=new AlertDialog.Builder(RecipientsActivity.this);
@@ -170,11 +173,23 @@ public class RecipientsActivity extends Activity {
         });
     }
 
+    protected void sendPushNotification() {
+        ParseQuery<ParseInstallation> query=ParseInstallation.getQuery();
+        query.whereContainedIn(ParseConstants.KEY_USER_ID, getRecipientIds());
+
+        //send push notification
+        ParsePush push= new ParsePush();
+            push.setQuery(query);
+        push.setMessage(getString(R.string.push_notification,
+                                    ParseUser.getCurrentUser().getUsername()));
+        push.sendInBackground();
+    }
+
     private ParseObject createMessage() {
         ParseObject message=new ParseObject(ParseConstants.CLASS_MESSAGE);
         message.put(ParseConstants.KEY_SENDER_ID,ParseUser.getCurrentUser().getObjectId());
         message.put(ParseConstants.KEY_SENDER_NAME,ParseUser.getCurrentUser().getUsername());
-        message.put(ParseConstants.KEY_RECIPIENT_IDS,getRecipientIds());
+        message.put(ParseConstants.KEY_RECIPIENT_IDS, getRecipientIds());
         message.put(ParseConstants.KEY_FILE_TYPE,mFileType);
 
         byte[] fileBytes= FileHelper.getByteArrayFromFile(this, mMediaUri);
@@ -194,7 +209,7 @@ public class RecipientsActivity extends Activity {
         return message;
     }
 
-    private Object getRecipientIds() {
+    private ArrayList<String> getRecipientIds() {
         ArrayList<String> recipientIds=new ArrayList<String>();
         for(int i=0;i<mGridView.getCount();i++){
             if(mGridView.isItemChecked(i)){

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.funq.zipak.R;
+import com.funq.zipak.ZipakApplication;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -75,6 +76,8 @@ public class LoginActivity extends Activity {
                             setProgressBarIndeterminateVisibility(false);
                             if(e==null){
                                 //success
+                                ZipakApplication.updateParseInstallation(user);
+
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

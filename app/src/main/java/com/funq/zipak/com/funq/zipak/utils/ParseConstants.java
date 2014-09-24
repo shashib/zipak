@@ -7,6 +7,7 @@ public final class ParseConstants {
     //class name
     public static final String CLASS_MESSAGE="Messages";
     //field name
+    public static final String KEY_USER_ID ="userId";
     public static final String KEY_USERNAME = "username";
     public static final String KEY_FRIENDS_RELATION="friendsRelation";
     public static final String KEY_RECIPIENT_IDS= "recipientIds";
